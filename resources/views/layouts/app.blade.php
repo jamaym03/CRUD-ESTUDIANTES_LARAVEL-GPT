@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 <body>
 @yield('content')
@@ -16,5 +19,7 @@
 
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}">  </script>
+
+@yield('scripts')
 </body>
 </html>

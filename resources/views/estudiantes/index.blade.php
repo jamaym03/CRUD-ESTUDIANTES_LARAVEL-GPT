@@ -56,7 +56,7 @@
                             <form method="POST" action="{{route('estudiantes.destroy',$estudiante->id)}}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm">  <i class="bi bi-trash"></i> </button>
+                                <button type="button" class="btn btn-danger btn-sm btn-eliminar">  <i class="bi bi-trash"></i> </button>
                             </form>
                         </td>
                     </tr>
@@ -74,8 +74,58 @@
 
     </div>
 
+@endsection
+
+@section('scripts')
+
+    <script>
+
+        @if(session('success'))
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: "{{ session('success') }}",
+            timer: 2000,
+            showConfirmButton: false
+        });
+    @endif
 
 
 
+document.addEventListener('DOMContentLoaded',function (){
+    const botones = document.querySelectorAll('.btn-eliminar');
+    botones.forEach(boton => {
+       boton.addEventListener('click',function (){
+            let form = this.closest('form');
+
+           Swal.fire({
+               title: '¿Estás seguro?',
+               text: "¡No podrás revertir esto!",
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonColor: '#3085d6',
+               cancelButtonColor: '#d33',
+               confirmButtonText: 'Sí, eliminar',
+               cancelButtonText: 'Cancelar'
+           }).then((result) => {
+               if (result.isConfirmed) {
+                   form.submit();
+               }
+           });
+       }) ;
+    });
+});
+    </script>
 
 @endsection
+
+
+
+
+
+
+
+
+
+
