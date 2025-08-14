@@ -53,11 +53,19 @@
 
                         <td>
                             <a href="{{route('estudiantes.edit',$estudiante->id)}}" class="btn btn-sm btn-warning">   <i class="bi bi-pencil-fill"></i></a>
-                            <form method="POST" action="{{route('estudiantes.destroy',$estudiante->id)}}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="button" class="btn btn-danger btn-sm btn-eliminar">  <i class="bi bi-trash"></i> </button>
-                            </form>
+{{--                            <form method="POST" action="{{route('estudiantes.destroy',$estudiante->id)}}">--}}
+{{--                                @csrf--}}
+{{--                                @method('DELETE')--}}
+{{--                                <button type="button" class="btn btn-danger btn-sm btn-eliminar">  <i class="bi bi-trash"></i> </button>--}}
+{{--                            </form>--}}
+
+
+                                    {{-- Eliminar con ajax Nuevo boton eliminar--}}
+                            <button class="btn btn-danger btn-sm btn-eliminar">  <i class="bi bi-trash-fill"></i> </button>
+
+
+
+
                         </td>
                     </tr>
                 @endforeach
